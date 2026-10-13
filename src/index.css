@@ -1,0 +1,241 @@
+/* =========================================================================
+   TERRALENS CLIMATE INTELLIGENCE DESIGN SYSTEM
+   Visual Identity Specification:
+   - Deep forest: #0B2E24
+   - Primary forest green: #14532D
+   - Emerald: #10B981
+   - Fresh mint: #D1FAE5
+   - Sky blue: #38BDF8
+   - Ice blue: #F0F9FF
+   - Off-white: #F8FAFC
+   - Main text: #0F172A
+   - Muted text: #64748B
+   ========================================================================= */
+
+:root {
+  /* Brand Palette */
+  --color-deep-forest: #0B2E24;
+  --color-forest-green: #14532D;
+  --color-emerald: #10B981;
+  --color-mint: #D1FAE5;
+  --color-sky-blue: #38BDF8;
+  --color-ice-blue: #F0F9FF;
+  --color-off-white: #F8FAFC;
+  --color-main-text: #0F172A;
+  --color-muted-text: #64748B;
+  --color-border: #E2E8F0;
+  --color-border-subtle: #EDF2F7;
+  --color-card-bg: #FFFFFF;
+
+  /* Semantic State Colors */
+  --color-supported: #10B981;
+  --color-supported-bg: #ECFDF5;
+  --color-supported-border: #A7F3D0;
+
+  --color-contradicted: #E11D48;
+  --color-contradicted-bg: #FFF1F2;
+  --color-contradicted-border: #FECDD3;
+
+  --color-insufficient: #D97706;
+  --color-insufficient-bg: #FFFBEB;
+  --color-insufficient-border: #FDE68A;
+
+  --color-evidence-blue: #0284C7;
+  --color-evidence-bg: #F0F9FF;
+  --color-evidence-border: #BAE6FD;
+
+  /* Typography */
+  --font-sans: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+
+  /* Radii & Shadows */
+  --radius-xs: 4px;
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+  --radius-xl: 20px;
+  --radius-full: 9999px;
+
+  --shadow-subtle: 0 1px 3px rgba(15, 23, 42, 0.05), 0 1px 2px rgba(15, 23, 42, 0.03);
+  --shadow-card: 0 4px 16px -2px rgba(15, 23, 42, 0.06), 0 2px 6px -1px rgba(15, 23, 42, 0.03);
+  --shadow-elevated: 0 12px 32px -4px rgba(15, 23, 42, 0.10), 0 4px 12px -2px rgba(15, 23, 42, 0.05);
+  --shadow-hero: 0 20px 48px -10px rgba(11, 46, 36, 0.5);
+
+  /* Transitions */
+  --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-normal: 240ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Reset & Base Setup */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  text-size-adjust: 100%;
+}
+
+body {
+  min-height: 100vh;
+  background-color: var(--color-off-white);
+  color: var(--color-main-text);
+  font-family: var(--font-sans);
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Typography Hierarchy */
+h1, h2, h3, h4, h5, h6 {
+  color: var(--color-main-text);
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+}
+
+p {
+  color: var(--color-muted-text);
+}
+
+a {
+  color: var(--color-evidence-blue);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+a:hover {
+  color: #0369A1;
+}
+
+code, pre, .font-mono {
+  font-family: var(--font-mono);
+}
+
+/* Accessible Focus Rings */
+:focus-visible {
+  outline: 2px solid var(--color-sky-blue);
+  outline-offset: 2px;
+}
+
+/* Containers */
+.container {
+  width: 100%;
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+@media (max-width: 640px) {
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+/* Utility Helpers */
+.py-8 {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+.text-emerald {
+  color: var(--color-emerald) !important;
+}
+
+.text-cyan {
+  color: var(--color-sky-blue) !important;
+}
+
+.text-violet {
+  color: #8B5CF6 !important;
+}
+
+.text-amber {
+  color: var(--color-insufficient) !important;
+}
+
+.text-red {
+  color: var(--color-contradicted) !important;
+}
+
+.hidden-mobile {
+  display: inline-flex;
+}
+
+@media (max-width: 768px) {
+  .hidden-mobile {
+    display: none !important;
+  }
+}
+
+/* Pulse Indicators */
+.pulse-dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  position: relative;
+}
+
+.pulse-dot.emerald {
+  background-color: var(--color-emerald);
+  box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
+  animation: pulse-emerald 2s infinite;
+}
+
+.pulse-dot.cyan {
+  background-color: var(--color-sky-blue);
+  box-shadow: 0 0 0 0 rgba(56, 189, 248, 0.7);
+  animation: pulse-cyan 2s infinite;
+}
+
+@keyframes pulse-emerald {
+  0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
+  70% { box-shadow: 0 0 0 6px rgba(16, 185, 129, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+}
+
+@keyframes pulse-cyan {
+  0% { box-shadow: 0 0 0 0 rgba(56, 189, 248, 0.7); }
+  70% { box-shadow: 0 0 0 6px rgba(56, 189, 248, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(56, 189, 248, 0); }
+}
+
+.beacon-dot {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+}
+
+.beacon-dot-emerald {
+  background-color: var(--color-emerald);
+  box-shadow: 0 0 8px var(--color-emerald);
+}
+
+/* Fade-in Animation */
+.animate-fade-in {
+  animation: fadeIn 300ms ease-out forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Reduced Motion Preference */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

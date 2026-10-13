@@ -1,0 +1,17 @@
+{
+  "name": "terralens-contracts",
+  "version": "1.0.0",
+  "description": "TerraLens Tamper-Evident Climate Audit Registry Smart Contracts",
+  "scripts": {
+    "test": "hardhat test",
+    "compile": "hardhat compile",
+    "deploy:local": "hardhat run scripts/deploy.js --network localhost",
+    "deploy:sepolia": "hardhat run scripts/deploy.js --network sepolia",
+    "deploy:amoy": "hardhat run scripts/deploy.js --network amoy"
+  },
+  "devDependencies": {
+    "@nomicfoundation/hardhat-toolbox": "^4.0.0",
+    "dotenv": "^18.0.7",
+    "hardhat": "^2.29.1"
+  }
+}
